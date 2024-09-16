@@ -4,7 +4,7 @@ import requests
 import json
 
 def calculate_commute_time(origin_coord_list:list, destination_coord_list:list, departure_time:str) -> int:
-    my_api_key = "AIzaSyDopA4aZRAVJZj5XNjbCm2rnWsj8GooTEQ"
+    my_api_key = "AIzaSyAzCcDYj8ZHBw5-R6j0uyteM6ZanlY7mDI"
     origin_lat = str(origin_coord_list[0])
     origin_lon = str(origin_coord_list[1])
     dest_lat = str(destination_coord_list[0])
@@ -33,7 +33,7 @@ def main():
         commute = calculate_commute_time(origin,dest_coords,departure_time)
         point["commute_time"] = commute
 
-    with open('coordinate_data.json','w') as f:
+    with open('commute_times.json','w') as f:
         json.dump(coordinate_json,f)
 
 if __name__ == '__main__':
