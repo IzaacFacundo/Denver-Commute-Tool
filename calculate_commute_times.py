@@ -4,7 +4,12 @@ import requests
 import json
 
 def calculate_commute_time(origin_coord_list:list, destination_coord_list:list, departure_time:str) -> int:
-    my_api_key = "AIzaSyAzCcDYj8ZHBw5-R6j0uyteM6ZanlY7mDI"
+    # Load the configuration file
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+
+    # Access the API key
+    my_api_key = config.get('google_api_key')
     origin_lat = str(origin_coord_list[0])
     origin_lon = str(origin_coord_list[1])
     dest_lat = str(destination_coord_list[0])
